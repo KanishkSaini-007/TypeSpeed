@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#11101e" />
+    <meta
+      name="description"
+      content="Find your rhythm with a focused typing speed test, live accuracy and local progress history."
+    />
+    <title>TypeSpeed - Find your rhythm</title>
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="./" class="brand"
+        ><span class="brand-icon">ts<span>_</span></span
+        >typespeed<span class="badge">THE SPEED LAB</span></a
+      ><span class="local"><span></span> PRIVATE BY DESIGN</span>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">SMALL PRACTICE. SERIOUS PROGRESS.</p>
+          <h1>Find your<br /><em>rhythm.</em><span class="dot">↗</span></h1>
+          <p class="sub">
+            A quiet space for faster fingers.<br />Test your pace. Build your
+            accuracy. Keep going.
+          </p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit one"></div>
+          <div class="orbit two"></div>
+          <div class="key key-t">t</div>
+          <div class="key key-s">s</div>
+          <span class="art-note">FLOW STATE / ON</span
+          ><span class="cross">+</span>
+        </div>
+      </section>
+      <section class="test" aria-label="Typing test">
+        <div class="test-top">
+          <div class="mode-control" aria-label="Test duration">
+            <button data-mode="30" aria-pressed="true" class="selected">
+              30 <span>seconds</span></button
+            ><button data-mode="60" aria-pressed="false">
+              60 <span>seconds</span>
+            </button>
+          </div>
+          <span id="status" role="status">READY WHEN YOU ARE</span>
+        </div>
+        <div class="instruments">
+          <div>
+            <span class="metric-label">SPEED</span>
+            <p><strong id="wpm">0</strong><span>wpm</span></p>
+          </div>
+          <div>
+            <span class="metric-label">ACCURACY</span>
+            <p><strong id="accuracy">100</strong><span>%</span></p>
+          </div>
+          <div class="time">
+            <span class="metric-label">TIME LEFT</span>
+            <p><strong id="time">30</strong><span>sec</span></p>
+          </div>
+        </div>
+        <div class="progress-track"><div id="progress"></div></div>
+        <div id="prompt" class="prompt" aria-label="Words to type"></div>
+        <label class="input-label" for="typing">TYPE THE WORDS ABOVE</label
+        ><textarea
+          id="typing"
+          rows="2"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="Start typing here. The clock starts with your first character."
+          aria-describedby="hint"
+        ></textarea>
+        <div class="test-bottom">
+          <span id="hint"
+            >Keep spaces between words. Backspace to fix mistakes.</span
+          ><button id="restart">
+            <span aria-hidden="true">↻</span> New test <kbd>Alt R</kbd>
+          </button>
+        </div>
+      </section>
+      <section id="result" class="result" hidden aria-live="polite">
+        <div>
+          <span class="eyebrow">RUN COMPLETE</span>
+          <h2 id="resultTitle">Nicely done.</h2>
+          <p id="resultDetail"></p>
+        </div>
+        <button id="again">Go again ↗</button>
+      </section>
+      <section class="history">
+        <div class="history-heading">
+          <div>
+            <p class="eyebrow">YOUR MOMENTUM</p>
+            <h2>Every run counts.</h2>
+          </div>
+          <button id="clear" class="text-button">Clear history</button>
+        </div>
+        <div class="history-grid">
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Recent pace</h3>
+              <span id="chartMode">30-SECOND RUNS · WPM</span>
+            </div>
+            <div id="chart" aria-label="WPM history graph"></div>
+            <p id="chartCaption">
+              Your last 12 runs in this mode, from oldest to newest.
+            </p>
+          </div>
+          <div class="record-card">
+            <span class="metric-label"
+              >PERSONAL BEST <span id="bestMode">/ 30 SEC</span></span
+            >
+            <p class="best"><strong id="best">-</strong><span>wpm</span></p>
+            <p id="bestNote">Your first finish is a fresh benchmark.</p>
+            <div class="record-footer">
+              <span>COMPLETED RUNS</span><strong id="count">0</strong>
+            </div>
+          </div>
+        </div>
+        <div id="runs" class="runs" aria-label="Recent results"></div>
+        <p id="storageNote">
+          History stays in this browser. No account, no leaderboard, no data
+          uploads.
+        </p>
+      </section>
+      <footer>
+        <span>typespeed <b>_</b></span>
+        <p>LESS RUSH. MORE RHYTHM.</p>
+        <span>HTML + CSS + JS</span>
+      </footer>
+    </main>
+    <script src="core.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
