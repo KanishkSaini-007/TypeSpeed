@@ -727,4 +727,6 @@ footer p {
     transition: none !important;
     scroll-behavior: auto !important;
   }
-  }
+}
+
+.chart-controls{display:flex;gap:6px;margin-top:12px}.chart-controls button{min-height:32px;padding:5px 10px;font-size:10px;background:transparent;color:var(--muted);border:1px solid var(--line)}.chart-controls button[aria-pressed="true"]{background:#39304f;color:#e1d2ff}
