@@ -11,7 +11,7 @@ A focused typing speed test with a violet-and-cobalt speed-lab theme, oversized 
 - Live correct-character WPM and accuracy, with a character-by-character prompt highlight.
 - Backspace to correct mistakes. Paste and drag-drop are disabled in the typing field.
 - Timer based on elapsed monotonic time, not the number of interval ticks. Switching tabs does not pause a test.
-- Result summary, personal best per mode, last 12 runs in an SVG graph and last five results as text.
+- Result summary, personal best per mode, last 12 runs in a switchable speed/accuracy SVG graph and last five results as text.
 - Up to 50 results stored in this browser. Clear history asks first.
 - Responsive layout, visible keyboard focus, reduced-motion support and a labeled SVG chart.
 
