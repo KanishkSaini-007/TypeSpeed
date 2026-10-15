@@ -1,6 +1,7 @@
 # TypeSpeed
 ### Less rush. More rhythm.
 
+[Open TypeSpeed](https://kanishksaini-007.github.io/TypeSpeed/) · [Source code](https://github.com/KanishkSaini-007/TypeSpeed)
 A focused typing speed test with a violet-and-cobalt speed-lab theme, oversized type, live metrics and a private progress log. No sign-in, backend, framework or build step.
 
 ![TypeSpeed desktop, ready for a test](desktop.svg)
