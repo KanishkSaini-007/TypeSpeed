@@ -1,3 +1,4 @@
+let chartMetric="wpm";
 const $ = (s) => document.querySelector(s),
   KEY = "typespeed.v1";
 let history = [],
@@ -175,7 +176,7 @@ $("#clear").onclick = () => {
 function renderHistory() {
   const records = history.filter((r) => r.mode === mode),
     last = records.slice(-12);
-  $("#chartMode").textContent = `${mode}-SECOND RUNS · WPM`;
+  $("#chartMode").textContent = `${mode}-SECOND RUNS · ${chartMetric === "wpm" ? "WPM" : "ACCURACY %"}`;
   $("#bestMode").textContent = `/ ${mode} SEC`;
   $("#best").textContent = records.length
     ? Math.max(...records.map((r) => r.wpm))
@@ -204,11 +205,11 @@ function renderHistory() {
     svg.setAttribute("role", "img");
     svg.setAttribute(
       "aria-label",
-      `Last ${last.length} ${mode}-second results: ${last.map((r) => r.wpm).join(", ")} words per minute`,
+      `Last ${last.length} ${mode}-second results: ${last.map((r) => r[chartMetric]).join(", ")} ${chartMetric === "wpm" ? "words per minute" : "percent accuracy"}`,
     );
-    const max = Math.max(
+    const max = chartMetric === "accuracy" ? 100 : Math.max(
       20,
-      Math.ceil(Math.max(...last.map((r) => r.wpm)) / 20) * 20,
+      Math.ceil(Math.max(...last.map((r) => r[chartMetric])) / 20) * 20,
     );
     function shape(tag, attrs) {
       const n = document.createElementNS(ns, tag);
@@ -237,7 +238,7 @@ function renderHistory() {
     }
     const points = last.map((r, i) => [
       last.length === 1 ? 290 : 45 + (i / (last.length - 1)) * 495,
-      130 - (r.wpm / max) * 110,
+      130 - (r[chartMetric] / max) * 110,
     ]);
     shape("polyline", {
       points: points.map((p) => p.join(",")).join(" "),
@@ -255,7 +256,7 @@ function renderHistory() {
         "font-size": 9,
         "font-family": "monospace",
       });
-      value.textContent = last[i].wpm;
+      value.textContent = last[i][chartMetric];
     });
     const axis = shape("text", {
       x: 45,
@@ -301,6 +302,7 @@ function renderHistory() {
       runs.append(row);
     });
 }
+document.querySelectorAll("[data-chart]").forEach(b=>b.onclick=()=>{chartMetric=b.dataset.chart;document.querySelectorAll("[data-chart]").forEach(n=>n.setAttribute("aria-pressed",String(n===b)));renderHistory()});
 reset(false);
 if (!saved)
   $("#storageNote").textContent =
