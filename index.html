@@ -106,7 +106,8 @@
               <h3>Recent pace</h3>
               <span id="chartMode">30-SECOND RUNS · WPM</span>
             </div>
-            <div id="chart" aria-label="WPM history graph"></div>
+            <div class="chart-controls" aria-label="Graph metric"><button data-chart="wpm" aria-pressed="true">Speed</button><button data-chart="accuracy" aria-pressed="false">Accuracy</button></div>
+            <div id="chart" aria-label="Typing results graph"></div>
             <p id="chartCaption">
               Your last 12 runs in this mode, from oldest to newest.
             </p>
@@ -137,4 +138,4 @@
     <script src="core.js"></script>
     <script src="app.js"></script>
   </body>
-</html>
+  </html>
